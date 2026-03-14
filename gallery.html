@@ -2,304 +2,254 @@
 <html lang="en">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Gallery | My Portfolio</title>
-
 <meta name="description" content="Portfolio gallery of design work and web projects">
 <meta name="keywords" content="portfolio gallery web design projects">
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
 <link rel="stylesheet" href="css/style.css">
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
+<style>
+/* --- Gallery Page Styles --- */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #f9f9f9;
+    color: #333;
+}
+
+.navbar {
+    transition: all 0.4s;
+}
+
+.navbar.scrolled {
+    background: #1a1a1a !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+h1, h5 {
+    font-weight: 700;
+    color: #222;
+}
+
+p {
+    color: #555;
+}
+
+.fade-in {
+    animation: fadeInUp 1s ease forwards;
+}
+
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(20px);}
+    100% { opacity: 1; transform: translateY(0);}
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.gallery-img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.gallery-caption {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(0deg, rgba(0,0,0,0.7), transparent);
+    color: #fff;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.gallery-item:hover .gallery-caption {
+    opacity: 1;
+}
+
+#lightbox {
+    position: fixed;
+    top:0; left:0; width:100%; height:100%;
+    background: rgba(0,0,0,0.9);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+#lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+}
+
+#backToTop {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #6f42c1;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    color: #fff;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#backToTop:hover {
+    background: #6610f2;
+}
+</style>
 </head>
-
 
 <body>
 
 <div id="scroll-progress"></div>
 
-
 <!-- NAVBAR -->
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow">
 <div class="container">
-
-<a class="navbar-brand" href="index.html">MyPortfolio</a>
-
+<a class="navbar-brand fw-bold" href="index.html">Juanitz'sPortfolio</a>
 <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
-
 <span class="navbar-toggler-icon"></span>
-
 </button>
-
 <div class="collapse navbar-collapse" id="navMenu">
-
 <ul class="navbar-nav ms-auto">
-
 <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
 <li class="nav-item"><a class="nav-link" href="store.html">Store</a></li>
 <li class="nav-item"><a class="nav-link active" href="gallery.html">Gallery</a></li>
 <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
 <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-
 </ul>
-
 <button id="modeToggle" class="btn btn-outline-light ms-3">
 <i class="fas fa-moon"></i>
 </button>
-
 </div>
-
 </div>
-
 </nav>
 
-
 <!-- PAGE HEADER -->
-
 <section class="container text-center py-5">
-
 <h1 class="mt-5">Project Gallery</h1>
-
 <p>Explore some of my work, design projects, and creative visuals.</p>
-
 </section>
-
 
 <!-- GALLERY GRID -->
-
 <section class="container pb-5">
-
 <div class="row g-4">
 
-
-<!-- IMAGE 1 -->
-
+<!-- Original 10 Images kept -->
 <div class="col-md-4 fade-in">
-
 <div class="gallery-item">
-
 <img src="images/gallery/gallery1.jpg" class="gallery-img">
-
-<div class="gallery-caption">
-
-<h5>Web Design Layout</h5>
-
+<div class="gallery-caption"><h5>Web Design Layout</h5></div>
 </div>
-
 </div>
-
-</div>
-
-
-<!-- IMAGE 2 -->
 
 <div class="col-md-4 fade-in">
-
 <div class="gallery-item">
-
 <img src="images/gallery/gallery2.jpg" class="gallery-img">
-
-<div class="gallery-caption">
-
-<h5>Landing Page Concept</h5>
-
+<div class="gallery-caption"><h5>Landing Page Concept</h5></div>
 </div>
-
 </div>
-
-</div>
-
-
-<!-- IMAGE 3 -->
 
 <div class="col-md-4 fade-in">
-
 <div class="gallery-item">
-
 <img src="images/gallery/gallery3.jpg" class="gallery-img">
-
-<div class="gallery-caption">
-
-<h5>Dashboard UI</h5>
-
+<div class="gallery-caption"><h5>Dashboard UI</h5></div>
 </div>
-
 </div>
-
-</div>
-
-
-<!-- IMAGE 4 -->
 
 <div class="col-md-4 fade-in">
-
 <div class="gallery-item">
-
 <img src="images/gallery/gallery4.jpg" class="gallery-img">
-
-<div class="gallery-caption">
-
-<h5>Creative Typography</h5>
-
+<div class="gallery-caption"><h5>Creative Typography</h5></div>
 </div>
-
 </div>
-
-</div>
-
-
-<!-- IMAGE 5 -->
 
 <div class="col-md-4 fade-in">
-
 <div class="gallery-item">
-
 <img src="images/gallery/gallery5.jpg" class="gallery-img">
-
-<div class="gallery-caption">
-
-<h5>Portfolio Layout</h5>
-
+<div class="gallery-caption"><h5>Portfolio Layout</h5></div>
 </div>
-
 </div>
-
-</div>
-
-
-<!-- IMAGE 6 -->
 
 <div class="col-md-4 fade-in">
-
 <div class="gallery-item">
-
 <img src="images/gallery/gallery6.jpg" class="gallery-img">
-
-<div class="gallery-caption">
-
-<h5>Mobile UI Design</h5>
-
+<div class="gallery-caption"><h5>Mobile UI Design</h5></div>
 </div>
-
 </div>
-
-</div>
-
-
-<!-- IMAGE 7 -->
 
 <div class="col-md-4 fade-in">
-
 <div class="gallery-item">
-
 <img src="images/gallery/gallery7.jpg" class="gallery-img">
-
-<div class="gallery-caption">
-
-<h5>Creative Branding</h5>
-
+<div class="gallery-caption"><h5>Creative Branding</h5></div>
 </div>
-
 </div>
-
-</div>
-
-
-<!-- IMAGE 8 -->
 
 <div class="col-md-4 fade-in">
-
 <div class="gallery-item">
-
 <img src="images/gallery/gallery8.jpg" class="gallery-img">
-
-<div class="gallery-caption">
-
-<h5>Website Hero Design</h5>
-
+<div class="gallery-caption"><h5>Website Hero Design</h5></div>
 </div>
-
 </div>
-
-</div>
-
-
-<!-- IMAGE 9 -->
 
 <div class="col-md-4 fade-in">
-
 <div class="gallery-item">
-
 <img src="images/gallery/gallery9.jpg" class="gallery-img">
-
-<div class="gallery-caption">
-
-<h5>Modern UI Layout</h5>
-
+<div class="gallery-caption"><h5>Modern UI Layout</h5></div>
 </div>
-
 </div>
-
-</div>
-
-
-<!-- IMAGE 10 -->
 
 <div class="col-md-4 fade-in">
-
 <div class="gallery-item">
-
 <img src="images/gallery/gallery10.jpg" class="gallery-img">
-
-<div class="gallery-caption">
-
-<h5>Creative Web Elements</h5>
-
+<div class="gallery-caption"><h5>Creative Web Elements</h5></div>
+</div>
 </div>
 
 </div>
-
-</div>
-
-
-</div>
-
 </section>
 
-
-<!-- LIGHTBOX VIEWER -->
-
+<!-- LIGHTBOX -->
 <div id="lightbox">
-
 <img src="">
-
 </div>
 
-
 <!-- FOOTER -->
-
 <footer class="bg-dark text-white text-center p-4">
-
-<p>© 2026 My Portfolio</p>
-
+<p>© 2026 Juanito's Portfolio</p>
 </footer>
 
-
+<!-- BACK TO TOP -->
+<button id="backToTop"><i class="fas fa-arrow-up"></i></button>
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
 <script src="js/script.js"></script>
 
 </body>
-
 </html>
