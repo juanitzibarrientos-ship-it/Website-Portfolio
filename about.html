@@ -1,296 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>About | My Portfolio</title>
-
-<meta name="description" content="Learn more about the developer behind this portfolio">
-<meta name="keywords" content="about web developer portfolio">
-
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-<link rel="stylesheet" href="css/style.css">
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
+<title>About Juanito</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-
 <body>
 
 <div id="scroll-progress"></div>
 
-<!-- NAVBAR -->
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-
-<div class="container">
-
-<a class="navbar-brand" href="index.html">MyPortfolio</a>
-
-<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
-
-<span class="navbar-toggler-icon"></span>
-
-</button>
-
-<div class="collapse navbar-collapse" id="navMenu">
-
-<ul class="navbar-nav ms-auto">
-
-<li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-<li class="nav-item"><a class="nav-link" href="store.html">Store</a></li>
-<li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
-<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-<li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
-
-</ul>
-
-<button id="modeToggle" class="btn btn-outline-light ms-3">
-<i class="fas fa-moon"></i>
-</button>
-
-</div>
-
-</div>
-
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">Juanito</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="store.html">Store</a></li>
+        <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        <li class="nav-item"><button class="btn btn-sm btn-outline-primary ms-2" id="modeToggle">Dark/Light</button></li>
+      </ul>
+    </div>
+  </div>
 </nav>
 
-
-<!-- PAGE HEADER -->
-
-<section class="container text-center py-5">
-
-<h1 class="mt-5">About Me</h1>
-
-<p>Get to know the developer behind the work.</p>
-
+<section class="container py-5">
+  <div class="row align-items-center">
+    <div class="col-md-4 text-center fade-in">
+      <img src="images/profile.jpg" alt="Juanito Profile" class="profile-img">
+    </div>
+    <div class="col-md-8 fade-in">
+      <h2 class="section-title mb-3">About Me</h2>
+      <p>Hello! I'm Juanito, a passionate Web Developer and Frontend Designer. I specialize in crafting responsive, modern, and interactive websites. My goal is to help businesses and individuals bring their ideas to life online. With experience in HTML, CSS, JavaScript, Bootstrap, and UI/UX design, I create websites that are not only functional but also visually appealing and user-friendly.</p>
+      <p>I also enjoy working on E-Commerce projects, building shopping experiences that are seamless and engaging for customers. Continuous learning and staying updated with the latest web technologies is my key to delivering professional results every time.</p>
+    </div>
+  </div>
 </section>
 
-
-<!-- PROFILE SECTION -->
-
-<section class="container pb-5">
-
-<div class="row align-items-center g-4">
-
-<div class="col-md-4 text-center fade-in">
-
-<img src="images/profile.jpg" class="profile-img">
-
-</div>
-
-<div class="col-md-8 fade-in">
-
-<h2>Hello, I'm Juanito</h2>
-
-<p class="lead">
-
-I am a passionate web developer who enjoys creating interactive, modern, and responsive websites. My focus is on building clean user interfaces, smooth user experiences, and professional web applications.
-
-</p>
-
-<p>
-
-I specialize in HTML, CSS, JavaScript, and Bootstrap. I enjoy transforming ideas into functional and visually appealing digital experiences.
-
-</p>
-
-<a href="#" class="btn btn-primary">
-
-Download Resume
-
-</a>
-
-</div>
-
-</div>
-
+<section class="skills-section py-5">
+  <div class="container">
+    <h2 class="text-center section-title mb-5 fade-in">My Skills</h2>
+    <div class="row g-4">
+      <div class="col-md-6 fade-in">
+        <p>HTML & CSS</p>
+        <div class="progress">
+          <div class="progress-bar bg-primary" data-width="95%"></div>
+        </div>
+      </div>
+      <div class="col-md-6 fade-in">
+        <p>JavaScript & jQuery</p>
+        <div class="progress">
+          <div class="progress-bar bg-success" data-width="85%"></div>
+        </div>
+      </div>
+      <div class="col-md-6 fade-in">
+        <p>Bootstrap & Frameworks</p>
+        <div class="progress">
+          <div class="progress-bar bg-warning" data-width="90%"></div>
+        </div>
+      </div>
+      <div class="col-md-6 fade-in">
+        <p>Photoshop & Figma</p>
+        <div class="progress">
+          <div class="progress-bar bg-danger" data-width="80%"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-
-
-<!-- STATISTICS -->
-
-<section class="container text-center pb-5">
-
-<div class="row g-4">
-
-<div class="col-md-3 fade-in">
-
-<h2 class="counter" data-target="25">0</h2>
-
-<p>Projects Completed</p>
-
-</div>
-
-<div class="col-md-3 fade-in">
-
-<h2 class="counter" data-target="10">0</h2>
-
-<p>Happy Clients</p>
-
-</div>
-
-<div class="col-md-3 fade-in">
-
-<h2 class="counter" data-target="3">0</h2>
-
-<p>Years Experience</p>
-
-</div>
-
-<div class="col-md-3 fade-in">
-
-<h2 class="counter" data-target="15">0</h2>
-
-<p>Web Designs</p>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- EXPERIENCE TIMELINE -->
-
-<section class="container pb-5">
-
-<h2 class="text-center mb-4">Experience</h2>
-
-<div class="timeline">
-
-<div class="timeline-item fade-in">
-
-<h5>2026 - Present</h5>
-
-<p>Freelance Web Developer creating modern responsive websites.</p>
-
-</div>
-
-<div class="timeline-item fade-in">
-
-<h5>2025</h5>
-
-<p>Completed several personal and school web development projects.</p>
-
-</div>
-
-<div class="timeline-item fade-in">
-
-<h5>2024</h5>
-
-<p>Started learning web development fundamentals.</p>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- SKILLS -->
-
-<section class="container pb-5">
-
-<h2 class="text-center mb-4">Technical Skills</h2>
-
-<div class="skill">
-
-<p>HTML</p>
-
-<div class="progress">
-
-<div class="progress-bar bg-primary" data-width="95%"></div>
-
-</div>
-
-</div>
-
-<div class="skill">
-
-<p>CSS</p>
-
-<div class="progress">
-
-<div class="progress-bar bg-success" data-width="90%"></div>
-
-</div>
-
-</div>
-
-<div class="skill">
-
-<p>JavaScript</p>
-
-<div class="progress">
-
-<div class="progress-bar bg-warning" data-width="80%"></div>
-
-</div>
-
-</div>
-
-<div class="skill">
-
-<p>Bootstrap</p>
-
-<div class="progress">
-
-<div class="progress-bar bg-danger" data-width="85%"></div>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- SOCIAL LINKS -->
-
-<section class="container text-center pb-5">
-
-<h3>Connect With Me</h3>
-
-<p>
-
-<a href="#"><i class="fab fa-facebook fa-2x me-3"></i></a>
-
-<a href="#"><i class="fab fa-instagram fa-2x me-3"></i></a>
-
-<a href="#"><i class="fab fa-twitter fa-2x me-3"></i></a>
-
-<a href="#"><i class="fab fa-github fa-2x"></i></a>
-
-</p>
-
-</section>
-
-
-
-<!-- FOOTER -->
-
-<footer class="bg-dark text-white text-center p-4">
-
-<p>© 2026 My Portfolio</p>
-
+<footer class="text-center py-4 bg-white mt-5">
+  <p>© 2026 Juanito Portfolio. All Rights Reserved.</p>
+  <div>
+    <a href="#" data-bs-toggle="tooltip" title="LinkedIn"><i class="fab fa-linkedin fa-lg"></i></a>
+    <a href="#" data-bs-toggle="tooltip" title="GitHub"><i class="fab fa-github fa-lg"></i></a>
+    <a href="#" data-bs-toggle="tooltip" title="Twitter"><i class="fab fa-twitter fa-lg"></i></a>
+  </div>
 </footer>
 
+<button id="backToTop"><i class="fas fa-chevron-up"></i></button>
 
-
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-<script src="js/script.js"></script>
-
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
 </body>
-
 </html>
