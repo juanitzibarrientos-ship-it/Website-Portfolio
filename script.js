@@ -4,17 +4,17 @@ DOCUMENT READY
 
 $(document).ready(function(){
 
-initializeTypingEffect();
-initializeScrollProgress();
-initializeFadeIn();
-initializeSkillBars();
-initializeBackToTop();
-initializeSmoothScroll();
-initializeDarkMode();
-initializeTooltips();
-initializeGalleryLightbox();
-initializeCartSystem();
-initializeContactForm();
+    initializeTypingEffect();
+    initializeScrollProgress();
+    initializeFadeIn();
+    initializeSkillBars();
+    initializeBackToTop();
+    initializeSmoothScroll();
+    initializeDarkMode();
+    initializeTooltips();
+    initializeGalleryLightbox();
+    initializeCartSystem();
+    initializeContactForm();
 
 });
 
@@ -25,49 +25,49 @@ TYPING HERO EFFECT
 
 function initializeTypingEffect(){
 
-const words = [
-"Juanito",
-"Web Developer",
-"Frontend Designer",
-"E-Commerce Builder"
-];
+    const words = [
+        "Juanito",
+        "Web Developer",
+        "Frontend Designer",
+        "E-Commerce Builder"
+    ];
 
-let i = 0;
-let j = 0;
-let currentWord = "";
-let isDeleting = false;
+    let i = 0;
+    let j = 0;
+    let currentWord = "";
+    let isDeleting = false;
 
-function type(){
+    function type(){
 
-currentWord = words[i];
+        currentWord = words[i];
 
-if(isDeleting){
-j--;
-}else{
-j++;
-}
+        if(isDeleting){
+            j--;
+        }else{
+            j++;
+        }
 
-$("#typing-text").text(currentWord.substring(0,j));
+        $("#typing-text").text(currentWord.substring(0,j));
 
-if(!isDeleting && j === currentWord.length){
-isDeleting = true;
-setTimeout(type,1200);
-return;
-}
+        if(!isDeleting && j === currentWord.length){
+            isDeleting = true;
+            setTimeout(type,1200);
+            return;
+        }
 
-if(isDeleting && j === 0){
-isDeleting = false;
-i++;
+        if(isDeleting && j === 0){
+            isDeleting = false;
+            i++;
 
-if(i === words.length){
-i = 0;
-}
-}
+            if(i === words.length){
+                i = 0;
+            }
+        }
 
-setTimeout(type,120);
-}
+        setTimeout(type,120);
+    }
 
-type();
+    type();
 
 }
 
@@ -78,15 +78,15 @@ SCROLL PROGRESS BAR
 
 function initializeScrollProgress(){
 
-$(window).scroll(function(){
+    $(window).scroll(function(){
 
-let scrollTop = $(window).scrollTop();
-let docHeight = $(document).height() - $(window).height();
-let scrollPercent = (scrollTop / docHeight) * 100;
+        let scrollTop = $(window).scrollTop();
+        let docHeight = $(document).height() - $(window).height();
+        let scrollPercent = (scrollTop / docHeight) * 100;
 
-$("#scroll-progress").css("width", scrollPercent + "%");
+        $("#scroll-progress").css("width", scrollPercent + "%");
 
-});
+    });
 
 }
 
@@ -97,20 +97,23 @@ FADE IN ON SCROLL
 
 function initializeFadeIn(){
 
-$(window).scroll(function(){
+    $(window).scroll(function(){
 
-$(".fade-in").each(function(){
+        $(".fade-in").each(function(){
 
-let elementTop = $(this).offset().top;
-let windowBottom = $(window).scrollTop() + 600;
+            let elementTop = $(this).offset().top;
+            let windowBottom = $(window).scrollTop() + $(window).height() - 100;
 
-if(elementTop < windowBottom){
-$(this).addClass("show");
-}
+            if(elementTop < windowBottom){
+                $(this).addClass("show");
+            }
 
-});
+        });
 
-});
+    });
+
+    // trigger on load
+    $(window).trigger("scroll");
 
 }
 
@@ -121,23 +124,26 @@ SKILL BAR ANIMATION
 
 function initializeSkillBars(){
 
-$(window).scroll(function(){
+    $(window).scroll(function(){
 
-$(".progress-bar").each(function(){
+        $(".progress-bar").each(function(){
 
-let elementTop = $(this).offset().top;
-let windowBottom = $(window).scrollTop() + 600;
+            let elementTop = $(this).offset().top;
+            let windowBottom = $(window).scrollTop() + $(window).height() - 100;
 
-if(elementTop < windowBottom){
+            if(elementTop < windowBottom){
 
-let width = $(this).data("width");
-$(this).css("width", width);
+                let width = $(this).data("width");
+                $(this).css("width", width);
 
-}
+            }
 
-});
+        });
 
-});
+    });
+
+    // trigger on load
+    $(window).trigger("scroll");
 
 }
 
@@ -148,23 +154,23 @@ BACK TO TOP BUTTON
 
 function initializeBackToTop(){
 
-$(window).scroll(function(){
+    $(window).scroll(function(){
 
-if($(this).scrollTop() > 300){
-$("#backToTop").fadeIn();
-}else{
-$("#backToTop").fadeOut();
-}
+        if($(this).scrollTop() > 300){
+            $("#backToTop").fadeIn();
+        }else{
+            $("#backToTop").fadeOut();
+        }
 
-});
+    });
 
-$("#backToTop").click(function(){
+    $("#backToTop").click(function(){
 
-$("html, body").animate({
-scrollTop:0
-},700);
+        $("html, body").animate({
+            scrollTop:0
+        },700);
 
-});
+    });
 
 }
 
@@ -175,21 +181,21 @@ SMOOTH SCROLL NAVIGATION
 
 function initializeSmoothScroll(){
 
-$('a[href^="#"]').on("click",function(e){
+    $('a[href^="#"]').on("click",function(e){
 
-let target = $(this.getAttribute('href'));
+        let target = $(this.getAttribute('href'));
 
-if(target.length){
+        if(target.length){
 
-e.preventDefault();
+            e.preventDefault();
 
-$("html,body").stop().animate({
-scrollTop: target.offset().top - 70
-},700);
+            $("html,body").stop().animate({
+                scrollTop: target.offset().top - 70
+            },700);
 
-}
+        }
 
-});
+    });
 
 }
 
@@ -200,23 +206,23 @@ DARK MODE SYSTEM
 
 function initializeDarkMode(){
 
-let savedTheme = localStorage.getItem("theme");
+    let savedTheme = localStorage.getItem("theme");
 
-if(savedTheme === "dark"){
-$("body").addClass("dark");
-}
+    if(savedTheme === "dark"){
+        $("body").addClass("dark");
+    }
 
-$("#modeToggle").click(function(){
+    $("#modeToggle").click(function(){
 
-$("body").toggleClass("dark");
+        $("body").toggleClass("dark");
 
-if($("body").hasClass("dark")){
-localStorage.setItem("theme","dark");
-}else{
-localStorage.setItem("theme","light");
-}
+        if($("body").hasClass("dark")){
+            localStorage.setItem("theme","dark");
+        }else{
+            localStorage.setItem("theme","light");
+        }
 
-});
+    });
 
 }
 
@@ -227,11 +233,11 @@ BOOTSTRAP TOOLTIPS
 
 function initializeTooltips(){
 
-var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
 
-tooltipTriggerList.map(function (tooltipTriggerEl) {
-return new bootstrap.Tooltip(tooltipTriggerEl)
-})
+    tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
 
 }
 
@@ -242,21 +248,21 @@ GALLERY LIGHTBOX
 
 function initializeGalleryLightbox(){
 
-$(".gallery-img").click(function(){
+    $(".gallery-img").click(function(){
 
-let src = $(this).attr("src");
+        let src = $(this).attr("src");
 
-$("#lightbox img").attr("src",src);
+        $("#lightbox img").attr("src",src);
 
-$("#lightbox").fadeIn();
+        $("#lightbox").fadeIn();
 
-});
+    });
 
-$("#lightbox").click(function(){
+    $("#lightbox").click(function(){
 
-$(this).fadeOut();
+        $(this).fadeOut();
 
-});
+    });
 
 }
 
@@ -269,63 +275,63 @@ let cart = [];
 
 function initializeCartSystem(){
 
-$(".add-to-cart").click(function(){
+    $(".add-to-cart").click(function(){
 
-let productName = $(this).data("name");
-let productPrice = parseFloat($(this).data("price"));
+        let productName = $(this).data("name");
+        let productPrice = parseFloat($(this).data("price"));
 
-addItemToCart(productName,productPrice);
+        addItemToCart(productName,productPrice);
 
-renderCart();
+        renderCart();
 
-});
+    });
 
 }
 
 
 function addItemToCart(name,price){
 
-cart.push({
-name:name,
-price:price
-});
+    cart.push({
+        name:name,
+        price:price
+    });
 
 }
 
 
 function renderCart(){
 
-let cartList = $("#cart-items");
-cartList.empty();
+    let cartList = $("#cart-items");
+    cartList.empty();
 
-let total = 0;
+    let total = 0;
 
-cart.forEach(function(item,index){
+    cart.forEach(function(item,index){
 
-total += item.price;
+        total += item.price;
 
-cartList.append(`
-<li>
-${item.name} - $${item.price.toFixed(2)}
-<button class="remove-item btn btn-sm btn-danger ms-2" data-index="${index}">
-x
-</button>
-</li>
-`);
+        cartList.append(`
+            <li>
+                ${item.name} - $${item.price.toFixed(2)}
+                <button class="remove-item btn btn-sm btn-danger ms-2" data-index="${index}">
+                    x
+                </button>
+            </li>
+        `);
 
-});
+    });
 
-$("#cart-total").text(total.toFixed(2));
+    $("#cart-total").text(total.toFixed(2));
 
-$(".remove-item").click(function(){
+    $(".remove-item").click(function(){
 
-let index = $(this).data("index");
+        let index = $(this).data("index");
 
-cart.splice(index,1);
+        cart.splice(index,1);
 
-renderCart();
+        renderCart();
 
-});
+    });
 
 }
 
@@ -336,65 +342,68 @@ CONTACT FORM VALIDATION
 
 function initializeContactForm(){
 
-$("#contactForm").submit(function(e){
+    $("#contactForm").submit(function(e){
 
-e.preventDefault();
+        e.preventDefault();
 
-let name = $("#name").val().trim();
-let email = $("#email").val().trim();
-let message = $("#message").val().trim();
+        let name = $("#name").val().trim();
+        let email = $("#email").val().trim();
+        let message = $("#message").val().trim();
 
-if(name === "" || email === "" || message === ""){
+        if(name === "" || email === "" || message === ""){
 
-alert("Please fill in all fields.");
+            alert("Please fill in all fields.");
+            return;
 
-return;
+        }
+
+        let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if(!emailPattern.test(email)){
+
+            alert("Please enter a valid email.");
+            return;
+
+        }
+
+        $("#successMessage").fadeIn().delay(3000).fadeOut();
+
+        this.reset();
+
+    });
 
 }
 
-let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-if(!emailPattern.test(email)){
-
-alert("Please enter a valid email.");
-
-return;
-
-}
-
-$("#successMessage").fadeIn();
-
-this.reset();
-
-});
-
-}s.forEach(fader => appearOnScroll.observe(fader));
+/* ==========================================
+COUNTER ANIMATION
+========================================== */
 
 const counters = document.querySelectorAll('.counter');
 
 counters.forEach(counter => {
 
-const updateCounter = () => {
+    const updateCounter = () => {
 
-const target = +counter.getAttribute('data-target');
-const count = +counter.innerText;
+        const target = +counter.getAttribute('data-target');
+        const count = +counter.innerText;
 
-const increment = target / 200;
+        const increment = target / 200;
 
-if(count < target){
+        if(count < target){
 
-counter.innerText = Math.ceil(count + increment);
+            counter.innerText = Math.ceil(count + increment);
 
-setTimeout(updateCounter,10);
+            setTimeout(updateCounter,10);
 
-}else{
+        }else{
 
-counter.innerText = target;
+            counter.innerText = target;
 
-}
+        }
 
-};
+    };
 
-updateCounter();
+    updateCounter();
 
 });
