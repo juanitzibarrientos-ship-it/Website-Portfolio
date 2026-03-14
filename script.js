@@ -1,86 +1,133 @@
-// ========== CART SYSTEM ==========
-let cartCount = localStorage.getItem("cart") || 0;
-document.addEventListener("DOMContentLoaded", () => {
-    const cartDisplay = document.getElementById("cart-count");
-    if(cartDisplay) cartDisplay.innerText = cartCount;
-});
+const typingElement = document.getElementById('typing');
+const phrases = ["Welcome to My Portfolio", "Interactive Web Projects", "Capstone-Ready Designs"];
+let i = 0, j = 0;
+let currentPhrase = '';
+let isDeleting = false;
 
-function addCart(item) {
-    cartCount++;
-    localStorage.setItem("cart", cartCount);
-    const cartDisplay = document.getElementById("cart-count");
-    if(cartDisplay) cartDisplay.innerText = cartCount;
-    alert(item + " added to cart!");
+function type() {
+  if (!typingElement) return;
+  if (!isDeleting && j <= phrases[i].length) {
+    currentPhrase = phrases[i].substring(0, j);
+    typingElement.textContent = currentPhrase;
+    j++;
+    setTimeout(type, 120);
+  } else if (isDeleting && j >= 0) {
+    currentPhrase = phrases[i].substring(0, j);
+    typingElement.textContent = currentPhrase;
+    j--;
+    setTimeout(type, 60);
+  } else {
+    isDeleting = !isDeleting;
+    if (!isDeleting) i = (i + 1) % phrases.length;
+    setTimeout(type, 1000);
+  }
 }
+type();
 
-// ========== DARK/LIGHT MODE TOGGLE ==========
+// -----------------------------
+// Dark/Light Theme Toggle
+// -----------------------------
 function toggleTheme() {
-    document.body.classList.toggle("dark-mode");
+  document.body.classList.toggle('dark-mode');
 }
 
-// ========== LIGHTBOX GALLERY ==========
+// -----------------------------
+// Add to Cart (store.html)
+// -----------------------------
+let cart = [];
+function addCart(itemName) {
+  cart.push(itemName);
+  const cartCount = document.getElementById('cart-count');
+  if(cartCount) cartCount.textContent = cart.length;
+
+  // Sticky Cart Preview
+  const cartPreview = document.getElementById('cart-preview');
+  const cartItems = document.getElementById('cart-items');
+  if(cartPreview && cartItems) {
+    cartItems.innerHTML = '';
+    cart.forEach(item => {
+      const li = document.createElement('li');
+      li.textContent = item;
+      cartItems.appendChild(li);
+    });
+    cartPreview.style.display = 'block';
+    setTimeout(() => { cartPreview.style.display = 'none'; }, 3000);
+  }
+
+  alert(`${itemName} added to cart!`);
+}
+
+// -----------------------------
+// Gallery Lightbox (gallery.html)
+// -----------------------------
 function openLightbox(img) {
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImg = document.getElementById("lightbox-img");
-    if(lightbox && lightboxImg){
-        lightbox.style.display = "flex";
-        lightboxImg.src = img.src;
-    }
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  if(lightbox && lightboxImg) {
+    lightbox.style.display = 'flex';
+    lightboxImg.src = img.src;
+  }
 }
 function closeLightbox() {
-    const lightbox = document.getElementById("lightbox");
-    if(lightbox) lightbox.style.display = "none";
+  const lightbox = document.getElementById('lightbox');
+  if(lightbox) lightbox.style.display = 'none';
 }
 
-// ========== CONTACT FORM VALIDATION ==========
-function validateForm() {
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const message = document.getElementById("message").value.trim();
-    const formMsg = document.getElementById("form-msg");
+// -----------------------------
+// Contact Form Validation
+// -----------------------------
+const contactForm = document.getElementById('contactForm');
+const successMessage = document.getElementById('successMessage');
 
-    if(name === "" || email === "" || message === "") {
-        alert("Please complete all fields!");
-        return false;
+if(contactForm) {
+  contactForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    if (!contactForm.checkValidity()) {
+      contactForm.classList.add('was-validated');
+      return;
     }
-
-    if(formMsg) formMsg.innerText = "Message Sent Successfully!";
-    return false; // prevent actual submission
+    if(successMessage) successMessage.style.display = 'block';
+    contactForm.reset();
+    contactForm.classList.remove('was-validated');
+  });
 }
 
-// ========== HERO TYPING EFFECT ==========
-const heroText = "Welcome to My Web Portfolio";
-let i = 0;
-
-function typeEffect() {
-    const el = document.getElementById("typing");
-    if(el && i < heroText.length){
-        el.innerHTML += heroText.charAt(i);
-        i++;
-        setTimeout(typeEffect, 60);
-    }
-}
-window.onload = typeEffect;
-
-// ========== SMOOTH SCROLL (Optional) ==========
+// -----------------------------
+// Smooth Scroll for internal links
+// -----------------------------
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e){
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if(target) target.scrollIntoView({ behavior: 'smooth' });
+  });
 });
 
-// ========== ADDITIONAL FUNCTIONALITY (Optional Enhancements) ==========
-// Example: Animated counters for stats
-function animateCounter(elId, target) {
-    let el = document.getElementById(elId);
-    if(!el) return;
-    let count = 0;
-    let interval = setInterval(()=>{
-        count++;
-        el.innerText = count;
-        if(count >= target) clearInterval(interval);
-    }, 50);
-}
+// -----------------------------
+// Bootstrap Tooltips
+// -----------------------------
+const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+tooltipTriggerList.map(el => new bootstrap.Tooltip(el));
+
+// -----------------------------
+// Back-to-Top Button
+// -----------------------------
+const backToTop = document.getElementById('backToTop');
+window.onscroll = () => {
+  if(window.scrollY > 300) backToTop?.style.display = 'block';
+  else backToTop?.style.display = 'none';
+};
+backToTop?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+// -----------------------------
+// Fade-in Animations
+// -----------------------------
+const faders = document.querySelectorAll('.fade-in');
+const appearOptions = { threshold: 0.2 };
+const appearOnScroll = new IntersectionObserver(function(entries){
+  entries.forEach(entry => {
+    if(entry.isIntersecting) entry.target.classList.add('show');
+  });
+}, appearOptions);
+
+faders.forEach(fader => appearOnScroll.observe(fader));
