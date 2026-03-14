@@ -83,6 +83,14 @@ height:90vh;
 overflow:hidden;
 }
 
+/* FORCE ALL CAROUSEL SLIDES SAME HEIGHT */
+
+.carousel-item{
+height:90vh;
+}
+
+/* FORCE ALL HERO IMAGES SAME SIZE */
+
 .hero-image{
 width:100%;
 height:90vh;
@@ -269,6 +277,8 @@ transition:0.3s;
 box-shadow:0 5px 15px rgba(0,0,0,0.1);
 }
 
+/* FORCE STORE PRODUCT IMAGES SAME SIZE */
+
 .product-card img{
 width:100%;
 height:220px;
@@ -418,35 +428,22 @@ background:#1e1e1e;
 RESPONSIVE DESIGN
 ======================================== */
 
-@media(max-width:992px){
-
-.hero-title{
-font-size:36px;
-}
-
-#typing-text{
-font-size:32px;
-}
-
-}
-
 @media(max-width:768px){
 
 .hero-section{
 height:70vh;
 }
 
+.carousel-item{
+height:70vh;
+}
+
 .hero-image{
-width:100%;
 height:70vh;
 }
 
 .hero-content{
 width:90%;
-}
-
-.cta-section h2{
-font-size:30px;
 }
 
 }
