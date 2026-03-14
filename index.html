@@ -1,126 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Juanito Portfolio</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<title>My Portfolio | Home</title>
+<meta name="description" content="Professional Web Developer Portfolio">
+<meta name="keywords" content="web developer portfolio html css javascript bootstrap ecommerce">
+<meta name="author" content="Juanito">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
 <div id="scroll-progress"></div>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
-  <div class="container">
-    <a class="navbar-brand" href="#">Juanito</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
-        <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-        <li class="nav-item"><a class="nav-link" href="#cta">Hire Me</a></li>
-        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-        <li class="nav-item"><button class="btn btn-sm btn-outline-primary ms-2" id="modeToggle">Dark/Light</button></li>
-      </ul>
-    </div>
-  </div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow">
+<div class="container">
+<a class="navbar-brand fw-bold" href="#">MyPortfolio</a>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarNav">
+<ul class="navbar-nav ms-auto">
+<li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+<li class="nav-item"><a class="nav-link" href="store.html">Store</a></li>
+<li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+<li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+</ul>
+<button id="modeToggle" class="btn btn-outline-light ms-3"><i class="fas fa-moon"></i></button>
+</div>
+</div>
 </nav>
 
-<section id="hero" class="hero-section">
-  <img src="images/hero1.jpg" alt="Hero Banner" class="hero-image">
-  <div class="hero-overlay"></div>
-  <div class="hero-content text-center fade-in">
-    <h1 class="hero-title">Hi, I'm <span id="typing-text"></span></h1>
-    <p class="hero-subtitle mt-3">Crafting modern and interactive websites that stand out.</p>
-    <a href="#cta" class="btn btn-primary btn-lg mt-4">Hire Me</a>
-  </div>
+<section class="hero-section position-relative">
+<div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+<div class="carousel-inner">
+<div class="carousel-item active">
+<img src="images/hero1.jpg" class="d-block w-100 hero-image" alt="Hero 1">
+</div>
+<div class="carousel-item">
+<img src="images/hero2.jpg" class="d-block w-100 hero-image" alt="Hero 2">
+</div>
+<div class="carousel-item">
+<img src="images/hero3.jpg" class="d-block w-100 hero-image" alt="Hero 3">
+</div>
+</div>
+</div>
+<div class="hero-overlay"></div>
+<div class="hero-content text-center">
+<h1 class="hero-title">Hello, I'm</h1>
+<h2 id="typing-text"></h2>
+<p class="hero-subtitle">I build modern, responsive and interactive websites.</p>
+<a href="#services" class="btn btn-primary btn-lg mt-3">Explore My Work</a>
+</div>
 </section>
 
-<section id="features" class="container py-5">
-  <h2 class="text-center section-title mb-5 fade-in">What I Do</h2>
-  <div class="row g-4">
-    <div class="col-md-4 fade-in">
-      <div class="card service-card text-center p-4 h-100">
-        <i class="fas fa-laptop-code fa-3x mb-3"></i>
-        <h5 class="mb-2">Web Development</h5>
-        <p>Create responsive, modern websites using HTML, CSS, JS, and frameworks like Bootstrap.</p>
-      </div>
-    </div>
-    <div class="col-md-4 fade-in">
-      <div class="card service-card text-center p-4 h-100">
-        <i class="fas fa-paint-brush fa-3x mb-3"></i>
-        <h5 class="mb-2">UI/UX Design</h5>
-        <p>Design clean interfaces with great user experience, including interactive layouts.</p>
-      </div>
-    </div>
-    <div class="col-md-4 fade-in">
-      <div class="card service-card text-center p-4 h-100">
-        <i class="fas fa-cart-plus fa-3x mb-3"></i>
-        <h5 class="mb-2">E-Commerce</h5>
-        <p>Build functional online stores with product grids, shopping carts, and checkout systems.</p>
-      </div>
-    </div>
-  </div>
+<section id="services" class="container py-5">
+<h2 class="text-center mb-5 section-title">My Services</h2>
+<div class="row g-4">
+<div class="col-md-4 fade-in">
+<div class="card service-card text-center p-4">
+<i class="fa-solid fa-code fa-3x mb-3"></i>
+<h4>Web Development</h4>
+<p>Modern responsive websites using HTML, CSS, JavaScript, and Bootstrap.</p>
+</div>
+</div>
+<div class="col-md-4 fade-in">
+<div class="card service-card text-center p-4">
+<i class="fa-solid fa-cart-shopping fa-3x mb-3"></i>
+<h4>E-Commerce</h4>
+<p>Online store development with product pages and cart systems.</p>
+</div>
+</div>
+<div class="col-md-4 fade-in">
+<div class="card service-card text-center p-4">
+<i class="fa-solid fa-magnifying-glass fa-3x mb-3"></i>
+<h4>SEO Optimization</h4>
+<p>Optimizing websites to rank higher on search engines.</p>
+</div>
+</div>
+</div>
 </section>
 
-<section id="skills" class="skills-section py-5">
-  <div class="container">
-    <h2 class="text-center section-title mb-5 fade-in">Skills</h2>
-    <div class="row g-4">
-      <div class="col-md-6 fade-in">
-        <p>HTML & CSS</p>
-        <div class="progress">
-          <div class="progress-bar bg-primary" data-width="95%"></div>
-        </div>
-      </div>
-      <div class="col-md-6 fade-in">
-        <p>JavaScript & jQuery</p>
-        <div class="progress">
-          <div class="progress-bar bg-success" data-width="85%"></div>
-        </div>
-      </div>
-      <div class="col-md-6 fade-in">
-        <p>Bootstrap & Frameworks</p>
-        <div class="progress">
-          <div class="progress-bar bg-warning" data-width="90%"></div>
-        </div>
-      </div>
-      <div class="col-md-6 fade-in">
-        <p>Photoshop & Figma</p>
-        <div class="progress">
-          <div class="progress-bar bg-danger" data-width="80%"></div>
-        </div>
-      </div>
-    </div>
-  </div>
+<section class="skills-section py-5 bg-light">
+<div class="container">
+<h2 class="text-center mb-5 section-title fade-in">Skills</h2>
+<div class="skill fade-in">
+<p>HTML</p>
+<div class="progress">
+<div class="progress-bar bg-primary" data-width="95%"></div>
+</div>
+</div>
+<div class="skill fade-in">
+<p>CSS</p>
+<div class="progress">
+<div class="progress-bar bg-success" data-width="90%"></div>
+</div>
+</div>
+<div class="skill fade-in">
+<p>JavaScript</p>
+<div class="progress">
+<div class="progress-bar bg-warning" data-width="80%"></div>
+</div>
+</div>
+<div class="skill fade-in">
+<p>Bootstrap</p>
+<div class="progress">
+<div class="progress-bar bg-danger" data-width="85%"></div>
+</div>
+</div>
+</div>
 </section>
 
-<section id="cta" class="cta-section text-center">
-  <div class="container fade-in">
-    <h2>Let's Build Something Amazing Together</h2>
-    <p>I'm ready to help you bring your web projects to life. Contact me today!</p>
-    <a href="contact.html" class="btn btn-light btn-lg">Get in Touch</a>
-  </div>
+<section class="container py-5 text-center fade-in">
+<h2>About Me</h2>
+<p class="lead">I am a passionate web developer who enjoys creating modern and engaging websites.</p>
+<a href="about.html" class="btn btn-outline-primary btn-lg">Read More</a>
 </section>
 
-<footer class="text-center py-4 bg-white mt-5">
-  <p>© 2026 Juanito Portfolio. All Rights Reserved.</p>
-  <div>
-    <a href="#" data-bs-toggle="tooltip" title="LinkedIn"><i class="fab fa-linkedin fa-lg"></i></a>
-    <a href="#" data-bs-toggle="tooltip" title="GitHub"><i class="fab fa-github fa-lg"></i></a>
-    <a href="#" data-bs-toggle="tooltip" title="Twitter"><i class="fab fa-twitter fa-lg"></i></a>
-  </div>
+<section class="cta-section text-center py-5">
+<div class="container">
+<h2>Need a Website?</h2>
+<p>Let's work together to build something amazing.</p>
+<a href="contact.html" class="btn btn-light btn-lg">Contact Me</a>
+</div>
+</section>
+
+<footer class="bg-dark text-white text-center p-4">
+<div class="container">
+<p class="mb-1">© 2026 My Portfolio</p>
+<p>
+<i class="fab fa-facebook"></i>
+<i class="fab fa-twitter"></i>
+<i class="fab fa-instagram"></i>
+<i class="fab fa-github"></i>
+</p>
+</div>
 </footer>
 
-<button id="backToTop"><i class="fas fa-chevron-up"></i></button>
+<button id="backToTop"><i class="fas fa-arrow-up"></i></button>
 
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-<script src="script.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/script.js"></script>
+
 </body>
 </html>
