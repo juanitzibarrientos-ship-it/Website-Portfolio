@@ -1,7 +1,3 @@
-/* ==========================================
-DOCUMENT READY
-========================================== */
-
 $(document).ready(function(){
 
     initializeTypingEffect();
@@ -17,11 +13,6 @@ $(document).ready(function(){
     initializeContactForm();
 
 });
-
-
-/* ==========================================
-TYPING HERO EFFECT
-========================================== */
 
 function initializeTypingEffect(){
 
@@ -71,11 +62,6 @@ function initializeTypingEffect(){
 
 }
 
-
-/* ==========================================
-SCROLL PROGRESS BAR
-========================================== */
-
 function initializeScrollProgress(){
 
     $(window).scroll(function(){
@@ -89,11 +75,6 @@ function initializeScrollProgress(){
     });
 
 }
-
-
-/* ==========================================
-FADE IN ON SCROLL
-========================================== */
 
 function initializeFadeIn(){
 
@@ -112,15 +93,9 @@ function initializeFadeIn(){
 
     });
 
-    // trigger on load
     $(window).trigger("scroll");
 
 }
-
-
-/* ==========================================
-SKILL BAR ANIMATION
-========================================== */
 
 function initializeSkillBars(){
 
@@ -142,15 +117,9 @@ function initializeSkillBars(){
 
     });
 
-    // trigger on load
     $(window).trigger("scroll");
 
 }
-
-
-/* ==========================================
-BACK TO TOP BUTTON
-========================================== */
 
 function initializeBackToTop(){
 
@@ -174,11 +143,6 @@ function initializeBackToTop(){
 
 }
 
-
-/* ==========================================
-SMOOTH SCROLL NAVIGATION
-========================================== */
-
 function initializeSmoothScroll(){
 
     $('a[href^="#"]').on("click",function(e){
@@ -198,11 +162,6 @@ function initializeSmoothScroll(){
     });
 
 }
-
-
-/* ==========================================
-DARK MODE SYSTEM
-========================================== */
 
 function initializeDarkMode(){
 
@@ -226,11 +185,6 @@ function initializeDarkMode(){
 
 }
 
-
-/* ==========================================
-BOOTSTRAP TOOLTIPS
-========================================== */
-
 function initializeTooltips(){
 
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
@@ -240,11 +194,6 @@ function initializeTooltips(){
     });
 
 }
-
-
-/* ==========================================
-GALLERY LIGHTBOX
-========================================== */
 
 function initializeGalleryLightbox(){
 
@@ -266,11 +215,6 @@ function initializeGalleryLightbox(){
 
 }
 
-
-/* ==========================================
-CART SYSTEM
-========================================== */
-
 let cart = [];
 
 function initializeCartSystem(){
@@ -286,14 +230,12 @@ function initializeCartSystem(){
 
     });
 
-    // Clear cart on checkout
     $('#checkoutModal').on('show.bs.modal', function () {
         cart = [];
         renderCart();
     });
 
 }
-
 
 function addItemToCart(name,price){
 
@@ -303,7 +245,6 @@ function addItemToCart(name,price){
     });
 
 }
-
 
 function renderCart(){
 
@@ -341,11 +282,6 @@ function renderCart(){
 
 }
 
-
-/* ==========================================
-CONTACT FORM VALIDATION
-========================================== */
-
 function initializeContactForm(){
 
     $("#contactForm").submit(function(e){
@@ -375,11 +311,6 @@ function initializeContactForm(){
     });
 
 }
-
-
-/* ==========================================
-COUNTER ANIMATION
-========================================== */
 
 const counters = document.querySelectorAll('.counter');
 
