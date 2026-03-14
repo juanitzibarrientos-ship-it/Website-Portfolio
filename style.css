@@ -1,7 +1,3 @@
-/* ========================================
-GLOBAL STYLES
-======================================== */
-
 *{
 margin:0;
 padding:0;
@@ -30,10 +26,6 @@ font-weight:700;
 letter-spacing:1px;
 }
 
-/* ========================================
-SCROLL PROGRESS BAR
-======================================== */
-
 #scroll-progress{
 position:fixed;
 top:0;
@@ -43,10 +35,6 @@ background:#0d6efd;
 width:0%;
 z-index:9999;
 }
-
-/* ========================================
-NAVBAR
-======================================== */
 
 .navbar{
 transition:0.4s;
@@ -66,19 +54,18 @@ margin-left:10px;
 color:#0d6efd !important;
 }
 
-/* ========================================
-HERO SECTION
-======================================== */
-
 .hero-section{
 position:relative;
 height:90vh;
 overflow:hidden;
 }
 
-.hero-image{
-height:90vh;
+.hero-image,
+.carousel-item img{
+width:100%;
+height:600px;
 object-fit:cover;
+object-position:center;
 }
 
 .hero-overlay{
@@ -87,11 +74,7 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-background:linear-gradient(
-to bottom,
-rgba(0,0,0,0.4),
-rgba(0,0,0,0.6)
-);
+background:linear-gradient(to bottom,rgba(0,0,0,0.4),rgba(0,0,0,0.6));
 }
 
 .hero-content{
@@ -120,10 +103,6 @@ font-weight:600;
 color:#0d6efd;
 }
 
-/* ========================================
-SERVICE CARDS
-======================================== */
-
 .service-card{
 border:none;
 border-radius:10px;
@@ -139,10 +118,6 @@ color:#0d6efd;
 transform:translateY(-12px);
 box-shadow:0 10px 30px rgba(0,0,0,0.15);
 }
-
-/* ========================================
-SKILLS SECTION
-======================================== */
 
 .skills-section{
 background:#f8f9fa;
@@ -168,16 +143,8 @@ width:0;
 transition:2s;
 }
 
-/* ========================================
-CTA SECTION
-======================================== */
-
 .cta-section{
-background:linear-gradient(
-135deg,
-#0d6efd,
-#6610f2
-);
+background:linear-gradient(135deg,#0d6efd,#6610f2);
 color:white;
 padding:80px 20px;
 }
@@ -192,10 +159,6 @@ margin-bottom:20px;
 font-size:18px;
 }
 
-/* ========================================
-FOOTER
-======================================== */
-
 footer{
 font-size:14px;
 }
@@ -208,10 +171,6 @@ cursor:pointer;
 footer i:hover{
 color:#0d6efd;
 }
-
-/* ========================================
-BACK TO TOP BUTTON
-======================================== */
 
 #backToTop{
 position:fixed;
@@ -234,10 +193,6 @@ transition:0.3s;
 background:#0b5ed7;
 }
 
-/* ========================================
-FADE IN ANIMATION
-======================================== */
-
 .fade-in{
 opacity:0;
 transform:translateY(30px);
@@ -249,10 +204,6 @@ opacity:1;
 transform:translateY(0);
 }
 
-/* ========================================
-STORE PAGE
-======================================== */
-
 .product-card{
 border:none;
 border-radius:10px;
@@ -262,23 +213,21 @@ box-shadow:0 5px 15px rgba(0,0,0,0.1);
 }
 
 .product-card img{
-height:220px;
+width:100%;
+height:250px;
 object-fit:cover;
+border-radius:8px;
+transition:transform 0.3s ease;
 }
 
-.product-card:hover{
-transform:translateY(-10px);
-box-shadow:0 10px 30px rgba(0,0,0,0.2);
+.product-card img:hover{
+transform:scale(1.05);
 }
 
 .product-price{
 font-weight:600;
 font-size:18px;
 }
-
-/* ========================================
-CART PANEL
-======================================== */
 
 #cart-panel{
 position:fixed;
@@ -308,26 +257,18 @@ font-size:14px;
 margin-bottom:5px;
 }
 
-/* ========================================
-GALLERY PAGE
-======================================== */
-
 .gallery-img{
 width:100%;
-height:200px;
+height:250px;
 object-fit:cover;
 border-radius:8px;
 cursor:pointer;
-transition:0.3s;
+transition:transform 0.3s ease;
 }
 
 .gallery-img:hover{
 transform:scale(1.05);
 }
-
-/* ========================================
-LIGHTBOX
-======================================== */
 
 #lightbox{
 position:fixed;
@@ -345,12 +286,9 @@ z-index:2000;
 #lightbox img{
 max-width:85%;
 max-height:85%;
+object-fit:contain;
 border-radius:10px;
 }
-
-/* ========================================
-CONTACT FORM
-======================================== */
 
 form input,
 form textarea{
@@ -361,22 +299,17 @@ form button{
 padding:10px 25px;
 }
 
-/* ========================================
-ABOUT PAGE
-======================================== */
-
 .profile-img{
-width:220px;
-height:220px;
+width:250px;
+height:250px;
 border-radius:50%;
 object-fit:cover;
 border:6px solid #0d6efd;
 margin-bottom:20px;
+display:block;
+margin-left:auto;
+margin-right:auto;
 }
-
-/* ========================================
-DARK MODE
-======================================== */
 
 body.dark{
 background:#121212;
@@ -405,51 +338,59 @@ body.dark footer{
 background:#1e1e1e;
 }
 
-/* ========================================
-RESPONSIVE DESIGN
-======================================== */
-
 @media(max-width:992px){
-
 .hero-title{
 font-size:36px;
 }
-
 #typing-text{
 font-size:32px;
 }
-
+.hero-image,
+.carousel-item img{
+height:400px;
+}
+.product-card img,
+.gallery-img{
+height:200px;
+}
+.profile-img{
+width:200px;
+height:200px;
+}
 }
 
 @media(max-width:768px){
-
 .hero-section{
 height:70vh;
 }
-
 .hero-image{
 height:70vh;
 }
-
 .hero-content{
 width:90%;
 }
-
 .cta-section h2{
 font-size:30px;
 }
-
 }
 
 @media(max-width:576px){
-
 .hero-title{
 font-size:28px;
 }
-
 #typing-text{
 font-size:24px;
 }
-
+.hero-image,
+.carousel-item img{
+height:300px;
+}
+.product-card img,
+.gallery-img{
+height:150px;
+}
+.profile-img{
+width:180px;
+height:180px;
 }
 }
