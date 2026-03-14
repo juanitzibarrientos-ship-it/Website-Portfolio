@@ -133,13 +133,15 @@ section {
     height: 20px;
     border-radius: 10px;
     overflow: hidden;
+    background-color: #eee;
 }
 
 .progress-bar {
     height: 100%;
     line-height: 20px;
     font-size: 0.9rem;
-    transition: width 1s ease-in-out;
+    width: 0; /* start at 0 for animation */
+    transition: width 1.5s ease-in-out;
 }
 
 /* ===== SOCIAL ICONS ===== */
@@ -259,19 +261,19 @@ I specialize in HTML, CSS, JavaScript, and Bootstrap. I enjoy transforming ideas
 <h2 class="text-center mb-4">Technical Skills</h2>
 <div class="skill">
 <p>HTML</p>
-<div class="progress"><div class="progress-bar bg-primary" data-width="95%"></div></div>
+<div class="progress"><div class="progress-bar bg-primary" data-width="95%">95%</div></div>
 </div>
 <div class="skill">
 <p>CSS</p>
-<div class="progress"><div class="progress-bar bg-success" data-width="90%"></div></div>
+<div class="progress"><div class="progress-bar bg-success" data-width="90%">90%</div></div>
 </div>
 <div class="skill">
 <p>JavaScript</p>
-<div class="progress"><div class="progress-bar bg-warning" data-width="80%"></div></div>
+<div class="progress"><div class="progress-bar bg-warning" data-width="80%">80%</div></div>
 </div>
 <div class="skill">
 <p>Bootstrap</p>
-<div class="progress"><div class="progress-bar bg-danger" data-width="85%"></div></div>
+<div class="progress"><div class="progress-bar bg-danger" data-width="85%">85%</div></div>
 </div>
 </section>
 
@@ -301,13 +303,22 @@ I specialize in HTML, CSS, JavaScript, and Bootstrap. I enjoy transforming ideas
 <script src="js/script.js"></script>
 
 <script>
-// FADE IN ON SCROLL
+// FADE IN AND SKILLS ANIMATION ON SCROLL
 $(window).scroll(function() {
   $(".fade-in").each(function() {
     let elementTop = $(this).offset().top;
     let windowBottom = $(window).scrollTop() + 600;
     if (elementTop < windowBottom) {
       $(this).addClass("show");
+    }
+  });
+
+  $(".progress-bar").each(function() {
+    let elementTop = $(this).offset().top;
+    let windowBottom = $(window).scrollTop() + $(window).height();
+    if (elementTop < windowBottom) {
+      let finalWidth = $(this).attr("data-width");
+      $(this).css("width", finalWidth);
     }
   });
 });
