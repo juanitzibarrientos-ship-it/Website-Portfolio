@@ -1,97 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>About | My Portfolio</title>
+
+<meta name="description" content="Learn more about the developer behind this portfolio">
+<meta name="keywords" content="about web developer portfolio">
+
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
 <style>
+/* ===== GENERAL STYLING ===== */
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    background: #f7f9fc;
     color: #333;
+    scroll-behavior: smooth;
 }
+
+h1, h2, h3, h4 {
+    font-weight: 600;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+    transition: background 0.3s;
+}
+
+.navbar .nav-link.active {
+    font-weight: 600;
+    color: #ffd700 !important;
+}
+
+/* ===== SCROLL PROGRESS BAR ===== */
+#scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 5px;
+    background: linear-gradient(to right, #00b4db, #0083b0);
+    width: 0;
+    z-index: 9999;
+}
+
+/* ===== HERO & PROFILE IMAGE ===== */
 .profile-img {
     width: 250px;
     height: 250px;
     object-fit: cover;
     border-radius: 50%;
-    border: 5px solid #6c63ff;
+    border: 5px solid #ffd700;
+    transition: transform 0.3s;
 }
-.timeline {
-    position: relative;
-    margin: 2rem 0;
-    padding-left: 30px;
+
+.profile-img:hover {
+    transform: scale(1.05);
 }
-.timeline::before {
-    content: '';
-    position: absolute;
-    left: 15px;
-    top: 0;
-    bottom: 0;
-    width: 4px;
-    background: linear-gradient(to bottom, #6c63ff, #3f3d56);
-    border-radius: 2px;
+
+/* ===== SECTIONS ===== */
+section {
+    padding: 80px 0;
 }
-.timeline-item {
-    position: relative;
-    margin-bottom: 2rem;
-    padding-left: 30px;
-}
-.timeline-item::before {
-    content: '';
-    position: absolute;
-    left: -15px;
-    top: 0;
-    width: 20px;
-    height: 20px;
-    background: #6c63ff;
-    border-radius: 50%;
-    border: 3px solid #fff;
-}
-.skill p {
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-}
-.progress {
-    height: 20px;
-    border-radius: 20px;
-    background: #e0e0e0;
-}
-.progress-bar {
-    height: 100%;
-    transition: width 1.5s ease-in-out;
-}
-.social-links a {
-    color: #6c63ff;
-    margin: 0 10px;
-    transition: transform 0.3s, color 0.3s;
-}
-.social-links a:hover {
-    color: #ff6584;
-    transform: scale(1.2);
-}
+
+/* ===== FADE-IN ANIMATION ===== */
 .fade-in {
     opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.8s ease-out;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
 }
+
 .fade-in.show {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* ===== TIMELINE ===== */
+.timeline {
+    position: relative;
+    margin: 40px 0;
+    padding-left: 40px;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 20px;
+    width: 3px;
+    height: 100%;
+    background: #0083b0;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+    padding-left: 20px;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -7px;
+    width: 15px;
+    height: 15px;
+    background: #ffd700;
+    border-radius: 50%;
+    border: 3px solid #0083b0;
+}
+
+/* ===== SKILLS ===== */
+.skill {
+    margin-bottom: 25px;
+}
+
+.skill p {
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.progress {
+    height: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    line-height: 20px;
+    font-size: 0.9rem;
+    transition: width 1s ease-in-out;
+}
+
+/* ===== SOCIAL ICONS ===== */
+.fa-2x {
+    transition: transform 0.3s, color 0.3s;
+}
+
+.fa-2x:hover {
+    color: #ffd700;
+    transform: scale(1.2);
+}
+
+/* ===== BUTTONS ===== */
+.btn-primary, .btn-outline-primary {
+    border-radius: 50px;
+    padding: 12px 30px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover, .btn-outline-primary:hover {
+    transform: translateY(-3px);
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width: 768px) {
+    .timeline {
+        padding-left: 20px;
+    }
+}
 </style>
 </head>
+
 <body>
+
+<!-- SCROLL PROGRESS BAR -->
+<div id="scroll-progress"></div>
 
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow">
 <div class="container">
-<a class="navbar-brand fw-bold" href="index.html">Juanitz'sPortfolio</a>
-<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
+<a class="navbar-brand fw-bold" href="index.html">MyPortfolio</a>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
 <span class="navbar-toggler-icon"></span>
 </button>
 <div class="collapse navbar-collapse" id="navMenu">
@@ -102,7 +192,9 @@ body {
 <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
 <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
 </ul>
-<button id="modeToggle" class="btn btn-outline-light ms-3"><i class="fas fa-moon"></i></button>
+<button id="modeToggle" class="btn btn-outline-light ms-3">
+<i class="fas fa-moon"></i>
+</button>
 </div>
 </div>
 </nav>
@@ -117,7 +209,7 @@ body {
 <section class="container pb-5">
 <div class="row align-items-center g-4">
 <div class="col-md-4 text-center fade-in">
-<img src="images/profile.jpg" class="profile-img" alt="Juanito Profile">
+<img src="images/profile.jpg" class="profile-img">
 </div>
 <div class="col-md-8 fade-in">
 <h2>Hello, I'm Juanito</h2>
@@ -146,30 +238,51 @@ I specialize in HTML, CSS, JavaScript, and Bootstrap. I enjoy transforming ideas
 <section class="container pb-5">
 <h2 class="text-center mb-4">Experience</h2>
 <div class="timeline">
-<div class="timeline-item fade-in"><h5>2026 - Present</h5><p>Freelance Web Developer creating modern responsive websites.</p></div>
-<div class="timeline-item fade-in"><h5>2025</h5><p>Completed several personal and school web development projects.</p></div>
-<div class="timeline-item fade-in"><h5>2024</h5><p>Started learning web development fundamentals.</p></div>
+<div class="timeline-item fade-in">
+<h5>2026 - Present</h5>
+<p>Freelance Web Developer creating modern responsive websites.</p>
+</div>
+<div class="timeline-item fade-in">
+<h5>2025</h5>
+<p>Completed several personal and school web development projects.</p>
+</div>
+<div class="timeline-item fade-in">
+<h5>2024</h5>
+<p>Started learning web development fundamentals.</p>
+</div>
 </div>
 </section>
 
 <!-- SKILLS -->
 <section class="container pb-5">
 <h2 class="text-center mb-4">Technical Skills</h2>
-<div class="skill"><p>HTML</p><div class="progress"><div class="progress-bar bg-primary" data-width="95%"></div></div></div>
-<div class="skill"><p>CSS</p><div class="progress"><div class="progress-bar bg-success" data-width="90%"></div></div></div>
-<div class="skill"><p>JavaScript</p><div class="progress"><div class="progress-bar bg-warning" data-width="80%"></div></div></div>
-<div class="skill"><p>Bootstrap</p><div class="progress"><div class="progress-bar bg-danger" data-width="85%"></div></div></div>
+<div class="skill">
+<p>HTML</p>
+<div class="progress"><div class="progress-bar bg-primary" data-width="95%"></div></div>
+</div>
+<div class="skill">
+<p>CSS</p>
+<div class="progress"><div class="progress-bar bg-success" data-width="90%"></div></div>
+</div>
+<div class="skill">
+<p>JavaScript</p>
+<div class="progress"><div class="progress-bar bg-warning" data-width="80%"></div></div>
+</div>
+<div class="skill">
+<p>Bootstrap</p>
+<div class="progress"><div class="progress-bar bg-danger" data-width="85%"></div></div>
+</div>
 </section>
 
 <!-- SOCIAL LINKS -->
 <section class="container text-center pb-5">
 <h3>Connect With Me</h3>
-<div class="social-links">
+<p>
 <a href="#"><i class="fab fa-facebook fa-2x me-3"></i></a>
 <a href="#"><i class="fab fa-instagram fa-2x me-3"></i></a>
 <a href="#"><i class="fab fa-twitter fa-2x me-3"></i></a>
 <a href="#"><i class="fab fa-github fa-2x"></i></a>
-</div>
+</p>
 </section>
 
 <!-- FOOTER -->
@@ -180,37 +293,19 @@ I specialize in HTML, CSS, JavaScript, and Bootstrap. I enjoy transforming ideas
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="js/script.js"></script>
+
 <script>
-// FADE-IN ANIMATION TRIGGER
-function revealOnScroll() {
-  const faders = document.querySelectorAll('.fade-in');
-  faders.forEach(el => {
-    const top = el.getBoundingClientRect().top;
-    if(top < window.innerHeight - 100) {
-      el.classList.add('show');
+// FADE IN ON SCROLL
+$(window).scroll(function() {
+  $(".fade-in").each(function() {
+    let elementTop = $(this).offset().top;
+    let windowBottom = $(window).scrollTop() + 600;
+    if (elementTop < windowBottom) {
+      $(this).addClass("show");
     }
   });
-}
-window.addEventListener('scroll', revealOnScroll);
-window.addEventListener('load', revealOnScroll);
-
-// COUNTER ANIMATION
-const counters = document.querySelectorAll('.counter');
-counters.forEach(counter => {
-  counter.innerText = '0';
-  const updateCounter = () => {
-    const target = +counter.getAttribute('data-target');
-    const current = +counter.innerText;
-    const increment = target / 200;
-    if(current < target) {
-      counter.innerText = Math.ceil(current + increment);
-      setTimeout(updateCounter, 10);
-    } else {
-      counter.innerText = target;
-    }
-  };
-  updateCounter();
 });
 </script>
+
 </body>
 </html>
