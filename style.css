@@ -1,45 +1,24 @@
-/* ========================================
-GLOBAL STYLES
-======================================== */
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+/* ==========================================
+GLOBAL
+========================================== */
 
 body{
-font-family:'Poppins',sans-serif;
-line-height:1.6;
-background:#ffffff;
-color:#333;
-transition:0.4s;
+font-family: Arial, Helvetica, sans-serif;
 padding-top:70px;
 }
-
-.container{
-max-width:1200px;
-}
-
-h1,h2,h3,h4{
-font-weight:600;
-}
-
-.section-title{
-font-weight:700;
-letter-spacing:1px;
-}
-
-/* UNIVERSAL IMAGE FIX */
 
 img{
 max-width:100%;
 display:block;
 }
 
-/* ========================================
+.container{
+max-width:1200px;
+}
+
+/* ==========================================
 SCROLL PROGRESS BAR
-======================================== */
+========================================== */
 
 #scroll-progress{
 position:fixed;
@@ -51,213 +30,14 @@ width:0%;
 z-index:9999;
 }
 
-/* ========================================
-NAVBAR
-======================================== */
-
-.navbar{
-transition:0.4s;
-}
-
-.navbar-brand{
-font-size:22px;
-letter-spacing:1px;
-}
-
-.nav-link{
-font-weight:500;
-margin-left:10px;
-}
-
-.nav-link:hover{
-color:#0d6efd !important;
-}
-
-/* ========================================
-HERO SECTION
-======================================== */
-
-.hero-section{
-position:relative;
-height:90vh;
-overflow:hidden;
-}
-
-/* FORCE ALL CAROUSEL SLIDES SAME HEIGHT */
-
-.carousel-item{
-height:90vh;
-}
-
-/* FORCE ALL HERO IMAGES SAME SIZE */
-
-.hero-image{
-width:100%;
-height:90vh;
-object-fit:cover;
-}
-
-.hero-overlay{
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:linear-gradient(
-to bottom,
-rgba(0,0,0,0.4),
-rgba(0,0,0,0.6)
-);
-}
-
-.hero-content{
-position:absolute;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-color:white;
-z-index:2;
-max-width:700px;
-}
-
-.hero-title{
-font-size:48px;
-font-weight:700;
-}
-
-.hero-subtitle{
-font-size:18px;
-opacity:0.9;
-}
-
-#typing-text{
-font-size:42px;
-font-weight:600;
-color:#0d6efd;
-}
-
-/* ========================================
-SERVICE CARDS
-======================================== */
-
-.service-card{
-border:none;
-border-radius:10px;
-transition:0.3s;
-box-shadow:0 5px 15px rgba(0,0,0,0.08);
-}
-
-.service-card i{
-color:#0d6efd;
-}
-
-.service-card:hover{
-transform:translateY(-12px);
-box-shadow:0 10px 30px rgba(0,0,0,0.15);
-}
-
-/* ========================================
-SKILLS SECTION
-======================================== */
-
-.skills-section{
-background:#f8f9fa;
-}
-
-.skill{
-margin-bottom:20px;
-}
-
-.skill p{
-margin-bottom:5px;
-font-weight:500;
-}
-
-.progress{
-height:20px;
-border-radius:50px;
-overflow:hidden;
-}
-
-.progress-bar{
-width:0;
-transition:2s;
-}
-
-/* ========================================
-CTA SECTION
-======================================== */
-
-.cta-section{
-background:linear-gradient(
-135deg,
-#0d6efd,
-#6610f2
-);
-color:white;
-padding:80px 20px;
-}
-
-.cta-section h2{
-font-size:40px;
-margin-bottom:10px;
-}
-
-.cta-section p{
-margin-bottom:20px;
-font-size:18px;
-}
-
-/* ========================================
-FOOTER
-======================================== */
-
-footer{
-font-size:14px;
-}
-
-footer i{
-margin:0 8px;
-cursor:pointer;
-}
-
-footer i:hover{
-color:#0d6efd;
-}
-
-/* ========================================
-BACK TO TOP BUTTON
-======================================== */
-
-#backToTop{
-position:fixed;
-bottom:30px;
-right:30px;
-width:45px;
-height:45px;
-border:none;
-border-radius:50%;
-background:#0d6efd;
-color:white;
-display:none;
-font-size:18px;
-cursor:pointer;
-box-shadow:0 5px 10px rgba(0,0,0,0.2);
-transition:0.3s;
-}
-
-#backToTop:hover{
-background:#0b5ed7;
-}
-
-/* ========================================
+/* ==========================================
 FADE IN ANIMATION
-======================================== */
+========================================== */
 
 .fade-in{
 opacity:0;
 transform:translateY(30px);
-transition:1s;
+transition:all 0.6s ease;
 }
 
 .fade-in.show{
@@ -265,19 +45,19 @@ opacity:1;
 transform:translateY(0);
 }
 
-/* ========================================
-STORE PAGE
-======================================== */
+/* ==========================================
+PRODUCT STORE
+========================================== */
 
 .product-card{
-border:none;
-border-radius:10px;
-overflow:hidden;
+height:100%;
 transition:0.3s;
-box-shadow:0 5px 15px rgba(0,0,0,0.1);
 }
 
-/* FORCE STORE PRODUCT IMAGES SAME SIZE */
+.product-card:hover{
+transform:translateY(-5px);
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
 
 .product-card img{
 width:100%;
@@ -285,57 +65,26 @@ height:220px;
 object-fit:cover;
 }
 
-.product-card:hover{
-transform:translateY(-10px);
-box-shadow:0 10px 30px rgba(0,0,0,0.2);
-}
-
 .product-price{
-font-weight:600;
+font-weight:bold;
 font-size:18px;
-}
-
-/* ========================================
-CART PANEL
-======================================== */
-
-#cart-panel{
-position:fixed;
-right:20px;
-top:120px;
-width:250px;
-background:white;
-border-radius:10px;
-padding:15px;
-box-shadow:0 10px 30px rgba(0,0,0,0.2);
-z-index:1000;
-}
-
-#cart-panel h5{
 margin-bottom:10px;
 }
 
-#cart-items{
-list-style:none;
-padding-left:0;
-max-height:200px;
-overflow:auto;
-}
+/* ==========================================
+GALLERY
+========================================== */
 
-#cart-items li{
-font-size:14px;
-margin-bottom:5px;
+.gallery-item{
+position:relative;
+overflow:hidden;
+border-radius:6px;
 }
-
-/* ========================================
-GALLERY PAGE
-======================================== */
 
 .gallery-img{
 width:100%;
-height:250px;
+height:260px;
 object-fit:cover;
-border-radius:8px;
 cursor:pointer;
 transition:0.3s;
 }
@@ -344,9 +93,26 @@ transition:0.3s;
 transform:scale(1.05);
 }
 
-/* ========================================
+.gallery-caption{
+position:absolute;
+bottom:0;
+left:0;
+right:0;
+background:rgba(0,0,0,0.6);
+color:white;
+text-align:center;
+padding:10px;
+opacity:0;
+transition:0.3s;
+}
+
+.gallery-item:hover .gallery-caption{
+opacity:1;
+}
+
+/* ==========================================
 LIGHTBOX
-======================================== */
+========================================== */
 
 #lightbox{
 position:fixed;
@@ -358,59 +124,111 @@ background:rgba(0,0,0,0.9);
 display:none;
 justify-content:center;
 align-items:center;
-z-index:2000;
+z-index:9999;
 }
 
 #lightbox img{
-max-width:85%;
-max-height:85%;
-border-radius:10px;
+max-width:90%;
+max-height:90%;
+object-fit:contain;
 }
 
-/* ========================================
-CONTACT FORM
-======================================== */
-
-form input,
-form textarea{
-border-radius:6px !important;
-}
-
-form button{
-padding:10px 25px;
-}
-
-/* ========================================
-ABOUT PAGE
-======================================== */
+/* ==========================================
+PROFILE IMAGE
+========================================== */
 
 .profile-img{
-width:220px;
-height:220px;
-border-radius:50%;
+width:250px;
+height:250px;
 object-fit:cover;
-border:6px solid #0d6efd;
+border-radius:50%;
+margin:auto;
+}
+
+/* ==========================================
+SKILLS
+========================================== */
+
+.skill{
 margin-bottom:20px;
 }
 
-/* ========================================
+.progress{
+height:20px;
+}
+
+.progress-bar{
+width:0;
+transition:1.5s;
+}
+
+/* ==========================================
+TIMELINE
+========================================== */
+
+.timeline{
+border-left:3px solid #0d6efd;
+padding-left:20px;
+}
+
+.timeline-item{
+margin-bottom:20px;
+}
+
+/* ==========================================
+STICKY CART
+========================================== */
+
+#cart-panel{
+position:fixed;
+right:0;
+top:100px;
+width:260px;
+background:white;
+border-left:1px solid #ddd;
+padding:15px;
+box-shadow:-3px 0 10px rgba(0,0,0,0.1);
+z-index:999;
+}
+
+#cart-panel ul{
+list-style:none;
+padding:0;
+}
+
+#cart-panel li{
+margin-bottom:8px;
+font-size:14px;
+}
+
+/* ==========================================
+CONTACT
+========================================== */
+
+iframe{
+border:0;
+width:100%;
+height:100%;
+}
+
+/* ==========================================
+FOOTER
+========================================== */
+
+footer{
+margin-top:40px;
+}
+
+/* ==========================================
 DARK MODE
-======================================== */
+========================================== */
 
 body.dark{
 background:#121212;
 color:#eee;
 }
 
-body.dark .navbar{
-background:#1e1e1e !important;
-}
-
-body.dark .skills-section{
-background:#1e1e1e;
-}
-
-body.dark .service-card{
+body.dark .card{
 background:#1e1e1e;
 color:white;
 }
@@ -421,41 +239,36 @@ color:white;
 }
 
 body.dark footer{
-background:#1e1e1e;
+background:#000;
 }
 
-/* ========================================
-RESPONSIVE DESIGN
-======================================== */
+/* ==========================================
+BACK TO TOP
+========================================== */
+
+#backToTop{
+position:fixed;
+bottom:30px;
+right:30px;
+display:none;
+}
+
+/* ==========================================
+RESPONSIVE FIXES
+========================================== */
 
 @media(max-width:768px){
 
-.hero-section{
-height:70vh;
+.gallery-img{
+height:200px;
 }
 
-.carousel-item{
-height:70vh;
+.product-card img{
+height:200px;
 }
 
-.hero-image{
-height:70vh;
-}
-
-.hero-content{
-width:90%;
-}
-
-}
-
-@media(max-width:576px){
-
-.hero-title{
-font-size:28px;
-}
-
-#typing-text{
-font-size:24px;
+#cart-panel{
+display:none;
 }
 
 }
