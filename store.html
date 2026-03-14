@@ -12,6 +12,122 @@
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* --- Store Page Styles --- */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #f5f5f5;
+    color: #333;
+}
+
+.navbar {
+    transition: all 0.4s;
+}
+
+.navbar.scrolled {
+    background: #1a1a1a !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+h1, h5 {
+    font-weight: 700;
+}
+
+p {
+    color: #555;
+}
+
+.product-card {
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+}
+
+.product-card img {
+    object-fit: cover;
+    height: 220px;
+    width: 100%;
+    transition: transform 0.3s;
+}
+
+.product-card:hover img {
+    transform: scale(1.05);
+}
+
+.product-price {
+    font-weight: 600;
+    color: #6f42c1;
+}
+
+#cart-panel {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    width: 250px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    padding: 15px;
+    z-index: 999;
+}
+
+#cart-panel h5 {
+    font-weight: 700;
+}
+
+#cart-items {
+    list-style: none;
+    padding-left: 0;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+#cart-items li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+#backToTop {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #6f42c1;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    color: #fff;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#backToTop:hover {
+    background: #6610f2;
+}
+
+#scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 5px;
+    background: #6f42c1;
+    width: 0%;
+    z-index: 9999;
+}
+</style>
 </head>
 
 <body>
@@ -19,148 +135,218 @@
 <div id="scroll-progress"></div>
 
 <!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-  <div class="container">
-    <a class="navbar-brand" href="index.html">MyPortfolio</a>
-    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navMenu">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-        <li class="nav-item"><a class="nav-link active" href="store.html">Store</a></li>
-        <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
-        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-      </ul>
-      <button id="modeToggle" class="btn btn-outline-light ms-3"><i class="fas fa-moon"></i></button>
-    </div>
-  </div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow">
+<div class="container">
+<a class="navbar-brand fw-bold" href="index.html">Juanitz'sPortfolio</a>
+<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navMenu">
+<ul class="navbar-nav ms-auto">
+<li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+<li class="nav-item"><a class="nav-link active" href="store.html">Store</a></li>
+<li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+<li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+</ul>
+<button id="modeToggle" class="btn btn-outline-light ms-3">
+<i class="fas fa-moon"></i>
+</button>
+</div>
+</div>
 </nav>
 
 <!-- PAGE HEADER -->
 <section class="container py-5 text-center">
-  <h1 class="mt-5">Digital Product Store</h1>
-  <p>Purchase professional web templates and design assets.</p>
+<h1 class="mt-5">Digital Product Store</h1>
+<p>Purchase professional web templates and design assets.</p>
 </section>
 
 <!-- PRODUCT GRID -->
 <section class="container pb-5">
-  <div class="row g-4">
+<div class="row g-4">
 
-    <!-- PRODUCT 1 -->
-    <div class="col-md-4">
-      <div class="card product-card">
-        <img src="images/products/product1.jpg" class="card-img-top">
-        <div class="card-body">
-          <h5>Portfolio Template</h5>
-          <p class="product-price">$19</p>
-          <button class="btn btn-primary add-to-cart" data-name="Portfolio Template" data-price="19" data-bs-toggle="tooltip" title="Add this product to your cart">Add to Cart</button>
-          <button class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#product1Modal">Details</button>
-        </div>
-      </div>
-    </div>
+<!-- PRODUCT 1 -->
+<div class="col-md-4">
+<div class="card product-card">
+<img src="images/products/product1.jpg" class="card-img-top">
+<div class="card-body">
+<h5>Portfolio Template</h5>
+<p class="product-price">$19</p>
+<button class="btn btn-primary add-to-cart" data-name="Portfolio Template" data-price="19" data-bs-toggle="tooltip" title="Add this product to your cart">Add to Cart</button>
+<button class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#product1Modal">Details</button>
+</div>
+</div>
+</div>
 
-    <!-- PRODUCT 2 -->
-    <div class="col-md-4">
-      <div class="card product-card">
-        <img src="images/products/product2.jpg" class="card-img-top">
-        <div class="card-body">
-          <h5>Ecommerce UI Kit</h5>
-          <p class="product-price">$29</p>
-          <button class="btn btn-primary add-to-cart" data-name="Ecommerce UI Kit" data-price="29">Add to Cart</button>
-          <button class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#product2Modal">Details</button>
-        </div>
-      </div>
-    </div>
+<!-- PRODUCT 2 -->
+<div class="col-md-4">
+<div class="card product-card">
+<img src="images/products/product2.jpg" class="card-img-top">
+<div class="card-body">
+<h5>Ecommerce UI Kit</h5>
+<p class="product-price">$29</p>
+<button class="btn btn-primary add-to-cart" data-name="Ecommerce UI Kit" data-price="29">Add to Cart</button>
+<button class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#product2Modal">Details</button>
+</div>
+</div>
+</div>
 
-    <!-- PRODUCT 3 -->
-    <div class="col-md-4">
-      <div class="card product-card">
-        <img src="images/products/product3.jpg" class="card-img-top">
-        <div class="card-body">
-          <h5>Landing Page Pack</h5>
-          <p class="product-price">$15</p>
-          <button class="btn btn-primary add-to-cart" data-name="Landing Page Pack" data-price="15">Add to Cart</button>
-          <button class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#product3Modal">Details</button>
-        </div>
-      </div>
-    </div>
+<!-- PRODUCT 3 -->
+<div class="col-md-4">
+<div class="card product-card">
+<img src="images/products/product3.jpg" class="card-img-top">
+<div class="card-body">
+<h5>Landing Page Pack</h5>
+<p class="product-price">$15</p>
+<button class="btn btn-primary add-to-cart" data-name="Landing Page Pack" data-price="15">Add to Cart</button>
+<button class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#product3Modal">Details</button>
+</div>
+</div>
+</div>
 
-    <!-- PRODUCT 4 -->
-    <div class="col-md-4">
-      <div class="card product-card">
-        <img src="images/products/product4.jpg" class="card-img-top">
-        <div class="card-body">
-          <h5>Admin Dashboard</h5>
-          <p class="product-price">$35</p>
-          <button class="btn btn-primary add-to-cart" data-name="Admin Dashboard" data-price="35">Add to Cart</button>
-          <button class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#product4Modal">Details</button>
-        </div>
-      </div>
-    </div>
+<!-- PRODUCT 4 -->
+<div class="col-md-4">
+<div class="card product-card">
+<img src="images/products/product4.jpg" class="card-img-top">
+<div class="card-body">
+<h5>Admin Dashboard</h5>
+<p class="product-price">$35</p>
+<button class="btn btn-primary add-to-cart" data-name="Admin Dashboard" data-price="35">Add to Cart</button>
+<button class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#product4Modal">Details</button>
+</div>
+</div>
+</div>
 
-    <!-- PRODUCT 5 -->
-    <div class="col-md-4">
-      <div class="card product-card">
-        <img src="images/products/product5.jpg" class="card-img-top">
-        <div class="card-body">
-          <h5>Website Icon Pack</h5>
-          <p class="product-price">$10</p>
-          <button class="btn btn-primary add-to-cart" data-name="Website Icon Pack" data-price="10">Add to Cart</button>
-          <button class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#product5Modal">Details</button>
-        </div>
-      </div>
-    </div>
+<!-- PRODUCT 5 -->
+<div class="col-md-4">
+<div class="card product-card">
+<img src="images/products/product5.jpg" class="card-img-top">
+<div class="card-body">
+<h5>Website Icon Pack</h5>
+<p class="product-price">$10</p>
+<button class="btn btn-primary add-to-cart" data-name="Website Icon Pack" data-price="10">Add to Cart</button>
+<button class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#product5Modal">Details</button>
+</div>
+</div>
+</div>
 
-    <!-- PRODUCT 6 -->
-    <div class="col-md-4">
-      <div class="card product-card">
-        <img src="images/products/product6.jpg" class="card-img-top">
-        <div class="card-body">
-          <h5>Premium Blog Theme</h5>
-          <p class="product-price">$22</p>
-          <button class="btn btn-primary add-to-cart" data-name="Premium Blog Theme" data-price="22">Add to Cart</button>
-          <button class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#product6Modal">Details</button>
-        </div>
-      </div>
-    </div>
+<!-- PRODUCT 6 -->
+<div class="col-md-4">
+<div class="card product-card">
+<img src="images/products/product6.jpg" class="card-img-top">
+<div class="card-body">
+<h5>Premium Blog Theme</h5>
+<p class="product-price">$22</p>
+<button class="btn btn-primary add-to-cart" data-name="Premium Blog Theme" data-price="22">Add to Cart</button>
+<button class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#product6Modal">Details</button>
+</div>
+</div>
+</div>
 
-  </div>
+</div>
 </section>
 
 <!-- STICKY CART PANEL -->
-<div id="cart-panel" class="shadow p-3 position-fixed end-0 top-50 translate-middle-y bg-light rounded" style="width: 250px; z-index: 1050;">
-  <h5>Cart</h5>
-  <ul id="cart-items" class="list-unstyled mb-2"></ul>
-  <hr>
-  <p>Total: $<span id="cart-total">0.00</span></p>
-  <button class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#checkoutModal">Checkout</button>
+<div id="cart-panel">
+<h5>Cart</h5>
+<ul id="cart-items"></ul>
+<hr>
+<p>Total: $<span id="cart-total">0</span></p>
+<button class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#checkoutModal">Checkout</button>
 </div>
 
 <!-- CHECKOUT MODAL -->
 <div class="modal fade" id="checkoutModal">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Checkout</h5>
-        <button class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
-      <div class="modal-body">
-        <p>Your order has been placed successfully!</p>
-      </div>
-    </div>
-  </div>
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title">Checkout</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+<p>Your order has been placed successfully!</p>
+</div>
+</div>
+</div>
 </div>
 
 <!-- FOOTER -->
 <footer class="bg-dark text-white text-center p-4">
-  <p>© 2026 My Portfolio</p>
+<p>© 2026 Juanito's Portfolio</p>
 </footer>
+
+<button id="backToTop"><i class="fas fa-arrow-up"></i></button>
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<script src="js/script.js"></script>
+
+<script>
+// ==== Store Page JS Features ====
+
+// Cart system
+let cart = [];
+
+function renderCart() {
+    let cartList = $("#cart-items");
+    cartList.empty();
+    let total = 0;
+    cart.forEach(function(item, index) {
+        total += item.price;
+        cartList.append(`
+            <li>${item.name} - $${item.price.toFixed(2)}
+            <button class="remove-item btn btn-sm btn-danger ms-2" data-index="${index}">x</button>
+            </li>
+        `);
+    });
+    $("#cart-total").text(total.toFixed(2));
+
+    $(".remove-item").click(function() {
+        let index = $(this).data("index");
+        cart.splice(index, 1);
+        renderCart();
+    });
+}
+
+$(".add-to-cart").click(function() {
+    let productName = $(this).data("name");
+    let productPrice = parseFloat($(this).data("price"));
+    cart.push({name: productName, price: productPrice});
+    renderCart();
+});
+
+// Back to top
+$(window).scroll(function() {
+    if ($(this).scrollTop() > 300) {
+        $("#backToTop").fadeIn();
+    } else {
+        $("#backToTop").fadeOut();
+    }
+});
+$("#backToTop").click(function() {
+    $("html, body").animate({scrollTop:0},700);
+});
+
+// Scroll progress bar
+$(window).scroll(function() {
+    let scrollTop = $(window).scrollTop();
+    let docHeight = $(document).height() - $(window).height();
+    let scrollPercent = (scrollTop / docHeight) * 100;
+    $("#scroll-progress").css("width", scrollPercent + "%");
+});
+
+// Dark mode toggle
+if(localStorage.getItem("theme") === "dark") $("body").addClass("dark");
+$("#modeToggle").click(function() {
+    $("body").toggleClass("dark");
+    localStorage.setItem("theme", $("body").hasClass("dark") ? "dark" : "light");
+});
+
+// Bootstrap tooltips
+var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+tooltipTriggerList.map(function (tooltipTriggerEl) {return new bootstrap.Tooltip(tooltipTriggerEl);});
+
+</script>
 
 </body>
 </html>
