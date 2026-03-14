@@ -286,6 +286,12 @@ function initializeCartSystem(){
 
     });
 
+    // Clear cart on checkout
+    $('#checkoutModal').on('show.bs.modal', function () {
+        cart = [];
+        renderCart();
+    });
+
 }
 
 
@@ -351,19 +357,15 @@ function initializeContactForm(){
         let message = $("#message").val().trim();
 
         if(name === "" || email === "" || message === ""){
-
             alert("Please fill in all fields.");
             return;
-
         }
 
         let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
         if(!emailPattern.test(email)){
-
             alert("Please enter a valid email.");
             return;
-
         }
 
         $("#successMessage").fadeIn().delay(3000).fadeOut();
