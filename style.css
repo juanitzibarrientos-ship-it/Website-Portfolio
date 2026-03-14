@@ -77,9 +77,8 @@ HERO SECTION
 }
 
 .hero-image{
-    width: 100%;
-    height: 90vh;      /* fixed height for hero images */
-    object-fit: cover; /* crops all hero images consistently */
+    height:90vh;
+    object-fit:cover;
 }
 
 .hero-overlay{
@@ -263,9 +262,11 @@ STORE PAGE
 }
 
 .product-card img{
-    width:100%;
-    height:220px;     /* fixed height for all product images */
+    width:100px;
+    height:100px;
     object-fit:cover;
+    display:block;
+    margin:0 auto;
 }
 
 .product-card:hover{
@@ -315,12 +316,14 @@ GALLERY PAGE
 ======================================== */
 
 .gallery-img{
-    width:100%;
-    height:260px;     /* fixed height for gallery images */
-    object-fit:cover;  /* ensures proper crop */
+    width:100px;
+    height:100px;
+    object-fit:cover;
     border-radius:8px;
     cursor:pointer;
     transition:0.3s;
+    display:block;
+    margin:0 auto;
 }
 
 .gallery-img:hover{
@@ -368,12 +371,13 @@ ABOUT PAGE
 ======================================== */
 
 .profile-img{
-    width:220px;      /* fixed profile image size */
-    height:220px;     /* fixed profile image size */
-    object-fit:cover; /* ensures circular crop works */
+    width:100px;
+    height:100px;
+    object-fit:cover;
     border-radius:50%;
     border:6px solid #0d6efd;
-    margin-bottom:20px;
+    margin:0 auto 20px auto;
+    display:block;
 }
 
 /* ========================================
