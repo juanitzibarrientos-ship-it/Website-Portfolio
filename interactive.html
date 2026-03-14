@@ -1,34 +1,296 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 
-<title>Interactive Demo</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="style.css">
+<title>About | My Portfolio</title>
 
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<meta name="description" content="Learn more about the developer behind this portfolio">
+<meta name="keywords" content="about web developer portfolio">
 
-<script src="script.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 </head>
 
 <body>
 
-<h1 class="page-title">JavaScript Interaction Demo</h1>
+<div id="scroll-progress"></div>
 
+<!-- NAVBAR -->
 
-<div class="interactive-box">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 
-<button onclick="showMessage()">Show Message</button>
+<div class="container">
 
-<button id="toggle">Toggle Hidden Text</button>
+<a class="navbar-brand" href="index.html">MyPortfolio</a>
+
+<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
+
+<span class="navbar-toggler-icon"></span>
+
+</button>
+
+<div class="collapse navbar-collapse" id="navMenu">
+
+<ul class="navbar-nav ms-auto">
+
+<li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+<li class="nav-item"><a class="nav-link" href="store.html">Store</a></li>
+<li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+<li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
+
+</ul>
+
+<button id="modeToggle" class="btn btn-outline-light ms-3">
+<i class="fas fa-moon"></i>
+</button>
 
 </div>
 
+</div>
 
-<p id="secret" class="hidden">
-This message appears using jQuery animation.
+</nav>
+
+
+<!-- PAGE HEADER -->
+
+<section class="container text-center py-5">
+
+<h1 class="mt-5">About Me</h1>
+
+<p>Get to know the developer behind the work.</p>
+
+</section>
+
+
+<!-- PROFILE SECTION -->
+
+<section class="container pb-5">
+
+<div class="row align-items-center g-4">
+
+<div class="col-md-4 text-center fade-in">
+
+<img src="images/profile.jpg" class="profile-img">
+
+</div>
+
+<div class="col-md-8 fade-in">
+
+<h2>Hello, I'm Juanito</h2>
+
+<p class="lead">
+
+I am a passionate web developer who enjoys creating interactive, modern, and responsive websites. My focus is on building clean user interfaces, smooth user experiences, and professional web applications.
+
 </p>
 
+<p>
+
+I specialize in HTML, CSS, JavaScript, and Bootstrap. I enjoy transforming ideas into functional and visually appealing digital experiences.
+
+</p>
+
+<a href="#" class="btn btn-primary">
+
+Download Resume
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- STATISTICS -->
+
+<section class="container text-center pb-5">
+
+<div class="row g-4">
+
+<div class="col-md-3 fade-in">
+
+<h2 class="counter" data-target="25">0</h2>
+
+<p>Projects Completed</p>
+
+</div>
+
+<div class="col-md-3 fade-in">
+
+<h2 class="counter" data-target="10">0</h2>
+
+<p>Happy Clients</p>
+
+</div>
+
+<div class="col-md-3 fade-in">
+
+<h2 class="counter" data-target="3">0</h2>
+
+<p>Years Experience</p>
+
+</div>
+
+<div class="col-md-3 fade-in">
+
+<h2 class="counter" data-target="15">0</h2>
+
+<p>Web Designs</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- EXPERIENCE TIMELINE -->
+
+<section class="container pb-5">
+
+<h2 class="text-center mb-4">Experience</h2>
+
+<div class="timeline">
+
+<div class="timeline-item fade-in">
+
+<h5>2026 - Present</h5>
+
+<p>Freelance Web Developer creating modern responsive websites.</p>
+
+</div>
+
+<div class="timeline-item fade-in">
+
+<h5>2025</h5>
+
+<p>Completed several personal and school web development projects.</p>
+
+</div>
+
+<div class="timeline-item fade-in">
+
+<h5>2024</h5>
+
+<p>Started learning web development fundamentals.</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- SKILLS -->
+
+<section class="container pb-5">
+
+<h2 class="text-center mb-4">Technical Skills</h2>
+
+<div class="skill">
+
+<p>HTML</p>
+
+<div class="progress">
+
+<div class="progress-bar bg-primary" data-width="95%"></div>
+
+</div>
+
+</div>
+
+<div class="skill">
+
+<p>CSS</p>
+
+<div class="progress">
+
+<div class="progress-bar bg-success" data-width="90%"></div>
+
+</div>
+
+</div>
+
+<div class="skill">
+
+<p>JavaScript</p>
+
+<div class="progress">
+
+<div class="progress-bar bg-warning" data-width="80%"></div>
+
+</div>
+
+</div>
+
+<div class="skill">
+
+<p>Bootstrap</p>
+
+<div class="progress">
+
+<div class="progress-bar bg-danger" data-width="85%"></div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- SOCIAL LINKS -->
+
+<section class="container text-center pb-5">
+
+<h3>Connect With Me</h3>
+
+<p>
+
+<a href="#"><i class="fab fa-facebook fa-2x me-3"></i></a>
+
+<a href="#"><i class="fab fa-instagram fa-2x me-3"></i></a>
+
+<a href="#"><i class="fab fa-twitter fa-2x me-3"></i></a>
+
+<a href="#"><i class="fab fa-github fa-2x"></i></a>
+
+</p>
+
+</section>
+
+
+
+<!-- FOOTER -->
+
+<footer class="bg-dark text-white text-center p-4">
+
+<p>© 2026 My Portfolio</p>
+
+</footer>
+
+
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="js/script.js"></script>
+
 </body>
+
 </html>
